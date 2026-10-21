@@ -136,6 +136,8 @@ internal sealed class ExtendedAgentOptions
             DisableAgentModeProvider = true,
             DisableAgentSkillsProvider = true,
             DisableOpenTelemetry = true,
+            // All tool decisions are collected explicitly by the conversation UI.
+            DisableToolAutoApproval = true,
         };
     }
 
