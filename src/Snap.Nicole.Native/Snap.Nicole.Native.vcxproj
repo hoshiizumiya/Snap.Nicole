@@ -24,7 +24,6 @@
     <ProjectGuid>{6cbeb489-3946-447d-a1b9-155899bba2be}</ProjectGuid>
     <RootNamespace>SnapNicoleNative</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <CppWinRTEnabled>true</CppWinRTEnabled>
     <MinimumVisualStudioVersion>18.11</MinimumVisualStudioVersion>
     <EnableNativePackageReferenceSupport>true</EnableNativePackageReferenceSupport>
   </PropertyGroup>
