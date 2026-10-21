@@ -1,4 +1,4 @@
-using Microsoft.Agents.AI;
+﻿using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.ObjectPool;
@@ -117,7 +117,7 @@ internal sealed class ExtendedAgentOptions
         int maxContextWindowTokens = Math.Clamp(MaxContextWindowTokens ?? ((MaxInputTokens ?? DefaultMaxInputTokens) + maxOutputTokens), maxOutputTokens + 1, int.MaxValue);
 
         HarnessAgentOptions harnessOptions = CreateHarnessAgentOptions(tools, serviceProvider, maxOutputTokens);
-        return chatClient.AsHarnessAgent(maxContextWindowTokens, maxOutputTokens, harnessOptions, loggerFactory: serviceProvider.GetRequiredService<ILoggerFactory>(), services: serviceProvider);
+        return chatClient.AsHarnessAgent(harnessOptions, loggerFactory: serviceProvider.GetRequiredService<ILoggerFactory>(), services: serviceProvider);
     }
 
     private HarnessAgentOptions CreateHarnessAgentOptions(IList<AITool>? tools, IServiceProvider serviceProvider, int maxOutputTokens)
@@ -128,9 +128,7 @@ internal sealed class ExtendedAgentOptions
             ChatHistoryProvider = CreateChatHistoryProvider(serviceProvider),
             HarnessInstructions = string.Empty,
             MaximumIterationsPerRequest = MaximumIterationsPerRequest,
-            DisableToolApproval = false,
             DisableFileMemory = true,
-            DisableFileAccess = true,
             DisableWebSearch = true,
             DisableTodoProvider = true,
             DisableAgentModeProvider = true,
